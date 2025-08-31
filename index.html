@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Social Media Content Analyzer</title>
+    <link rel="stylesheet" href="Analyze.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+
+        window.pdfjsLib && (pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js");
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Social Media Content Analyzer</h1>
+            <p class="sub">Upload a <b>PDF</b> or an <b>image</b> (PNG/JPG). We'll extract the text and suggest quick
+                improvements.</p>
+
+            <div id="error" class="error hidden" role="alert"></div>
+
+            <div id="drop" class="uploader" tabindex="0">
+                <div>
+                    <div class="row" style="justify-content:center; gap:12px;">
+                        <label class="btn" for="file">Choose File</label>
+                        <button class="btn" id="demoBtn" type="button">Try Demo Text</button>
+                    </div>
+                    <p class="muted">Accepted: .pdf, .png, .jpg, .jpeg</p>
+                </div>
+                <input id="file" type="file" accept=".pdf,.png,.jpg,.jpeg,image/*,application/pdf" />
+                <progress id="prog" value="0" max="100" class="hidden"></progress>
+                <div id="status" class="muted"></div>
+            </div>
+
+            <div class="grid" style="margin-top: 16px;">
+                <div class="card">
+                    <div class="row" style="justify-content: space-between;">
+                        <h2 style="font-size:1.1rem; margin:0">Extracted Text</h2>
+                        <div class="row">
+                            <button class="btn" id="copyBtn" type="button">Copy</button>
+                            <button class="btn" id="clearBtn" type="button">Clear</button>
+                        </div>
+                    </div>
+                    <textarea id="text" placeholder="Extracted or pasted text will appear here..."></textarea>
+                    <div class="row" style="justify-content:flex-end; margin-top:10px;">
+                        <button class="btn" id="analyzeBtn" type="button">Analyze Text</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 style="font-size:1.1rem; margin-top:0">Analysis</h2>
+                    <div class="row" style="gap:12px; align-items: baseline;">
+                        <span class="muted">Score</span>
+                        <span id="score" class="score">—</span>
+                        <span class="muted">/ 10</span>
+                    </div>
+                    <ul id="tips" class="tips"></ul>
+                    <p class="footer">Tips are heuristic (rule-based) for speed and clarity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Analyzer.js"></script>
+</body>
+
+</html>

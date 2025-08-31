@@ -27,10 +27,11 @@ Copy/Clear/Analyze buttons
 🚀 [Live Demo](https://anchal-mishra10.github.io/Social-Media-Post-Analyzer/)
 
 ## 💡 Approach
-- Used *PDF.js* for parsing PDFs.  
-- Integrated *Tesseract.js* for OCR on images.  
-- Implemented *heuristic rules* to evaluate clarity & engagement.  
-- Responsive UI with *vanilla CSS*.
+-I developed the Social Media Content Analyzer as a lightweight web application focused on simplicity, responsiveness, and clear functionality. The main goal was to allow users to upload either PDF documents or image files and seamlessly extract text for further analysis. To achieve this, I integrated PDF.js for parsing text from PDF files and Tesseract.js for OCR-based extraction from images, ensuring support for both digital and scanned content.
+
+Once text is extracted, it is displayed in a dedicated textarea where users can review, copy, clear, or directly analyze the content. The analysis itself is built on a rule-based heuristic model that quickly checks for engagement features such as hashtags, emojis, links, and call-to-actions. Based on these rules, the system generates a score out of 10 along with specific, actionable tips for improvement.
+
+The user interface was designed with a responsive layout so it works well on both mobile and desktop. I emphasized clean code, basic error handling, and loading states to enhance the user experience, particularly during OCR or large PDF processing. By keeping everything client-side, the solution remains lightweight, fast, and easy to deploy without needing backend infrastructure.
 
   ---
 🔹 Built with ❤ by [Anchal Mishra](https://github.com/anchal-mishra10)
